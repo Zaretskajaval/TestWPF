@@ -1,0 +1,126 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:local="clr-namespace:Shop_Lapki"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+     xmlns:local1="clr-namespace:Shop_Lapki.View"
+     xmlns:Properties="clr-namespace:Shop_Lapki.Properties"
+     x:Class="Shop_Lapki.View.ToMakeOrder"
+        mc:Ignorable="d"
+          Title="Оформление заказа" Height="500" Width="532" MinHeight="500" MinWidth="400" Icon="IconkaLapki-PhotoRoom — копия.png" >
+    <Grid x:Name="dataGridCart">
+        <!--Макет окна из трех строк-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок окна-->
+        <Grid Grid.Row="0" Background="HotPink" Height="50" Margin="0,0,-0.4,390" Grid.RowSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="526">
+            <Grid.ColumnDefinitions>
+                <!--В заголовке три столбца-->
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="197*"/>
+                <ColumnDefinition Width="150*"/>
+            </Grid.ColumnDefinitions>
+            <!--Логотип-->
+            <Image Grid.Column="0" Source="C:\Users\Senya\Desktop\Shop Lapki\Shop Lapki/Resources/IconkaLapki-PhotoRoom.png" Stretch="Fill" Grid.ColumnSpan="2" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="50"/>
+            <!--Заголовок с настройками-->
+            <TextBlock Grid.Column="1" Text ="Оформление заказа"  FontFamily ="Segoe Print" 
+                                       Foreground="White"
+                       FontSize="15" HorizontalAlignment ="Center" VerticalAlignment="Center" Margin="0.4,8,36.8,10" Width="158" Height="32" />
+            <!--Кнопка с настройками-->
+            <Button x:Name="butExitMainMenu" Grid.Column="2" Click="butExitMainMenu_Click" Margin="8.6,10,9.6,10" 
+                            Background ="{x:Null}" HorizontalContentAlignment="Stretch" 
+                            VerticalAlignment="Stretch">
+                <!--Содержимое кнопки-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="174" Margin="-44,0,0,0"  >
+                    <!--Картинка на кнопке-->
+                    <Image Source="C:\Users\Senya\Desktop\Shop Lapki\Shop Lapki\фото\exitInMenu.jpg" Stretch="Uniform" Width="38" />
+                    <TextBlock Text="Главное меню" VerticalAlignment="Center" Margin="10,0" 
+                         FontFamily="Segoe Print" Foreground="White" FontSize="16"
+                         HorizontalAlignment="Center" Width="130" />
+                    <!--Надпись на кнопке-->
+                </StackPanel>
+            </Button>
+        </Grid>
+
+
+
+
+        <Grid Grid.Row="1" Height="390" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="526" Margin="0,0,-0.4,0">
+            <Grid.Background>
+
+                <ImageBrush ImageSource="C:\Users\Senya\Desktop\Shop Lapki\Shop Lapki\фото\fonForWins.jpg" Stretch="Fill"/>
+            </Grid.Background>
+            <Grid HorizontalAlignment="Left" Height="100" Margin="166,115,0,0" VerticalAlignment="Top" Width="100"/>
+            <Button Content="Оформить покупку" HorizontalAlignment="Left" Margin="156,320,0,0" VerticalAlignment="Top" Width="208" Height="50" Background="#FFEB0808" FontFamily="Segoe Print" FontSize="18" Click="Button_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FFF027E3" ShadowDepth="8" BlurRadius="20"/>
+                </Button.Effect>
+            </Button>
+            <DataGrid x:Name="datagrid" Margin="9,52,10,92" ItemsSource="{Binding}">
+                <DataGrid.Columns>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="Button_Click" Content="+" Background="HotPink"/>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="Button_Click_1" Content="-" Background="HotPink"/>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+
+
+
+
+            </DataGrid>
+            <TextBlock x:Name="TextBlockSumWithCount" HorizontalAlignment="Left" Margin="421,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="95" FontSize="14" FontWeight="Bold" Foreground="#FF9F0404" FontFamily="Segoe Print">
+                <TextBlock.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE0D7D7" Offset="1"/>
+                        <GradientStop Color="#FFFF9898" Offset="0.313"/>
+                        <GradientStop Color="#FF1E1111" Offset="1"/>
+                        <GradientStop Color="#FFDCDBDB" Offset="0.832"/>
+                        <GradientStop Color="#FF050303" Offset="1"/>
+                    </LinearGradientBrush>
+                </TextBlock.Background>
+            </TextBlock>
+
+
+
+        </Grid>
+
+        <!-- Подвал окна -->
+        <Grid Grid.Row="4" Background="HotPink">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="@Zaretskaia" FontSize="14" FontFamily="Segoe Print" 
+                                Foreground="White"/>
+            <TextBlock Grid.Column="1" Text="Zaretskajaval@yandex.ru" FontSize="14" 
+                                FontFamily="Segoe Print" Foreground="White"/>
+        </Grid>
+
+
+
+
+    </Grid>
+
+</Window>
+
